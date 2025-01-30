@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [RouterModule],
+  template: `
+    <h1>Supabase Auth</h1>
+    <nav>
+      <a routerLink="/login">Login</a> | <a routerLink="/register">Register</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
 })
-export class AppComponent {
-  title = 'angular_project';
-}
+export class AppComponent {}
